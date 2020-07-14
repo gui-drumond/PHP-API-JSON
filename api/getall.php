@@ -14,7 +14,8 @@ if($method==='get')
         $data = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         foreach($data as $item)
-        {
+        {   
+            $array['error']= false;
             $array['result'][] = [
                 'id'=>$item['id'],
                 'title'=> $item['title'],
@@ -25,7 +26,7 @@ if($method==='get')
     }
 }
 else{
-    $array['error'] = 'NO PERMISSION! (JUST get)';
+    $array['error'] = ['true','NO PERMISSION! (JUST get)'];
 }
 
 
